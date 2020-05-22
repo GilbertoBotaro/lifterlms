@@ -20,11 +20,6 @@
     "issues": "https://github.com/gocodebox/lifterlms/issues",
     "source": "https://github.com/gocodebox/lifterlms"
   },
-  "autoload": {
-    "psr-4": {
-      "LLMS\\": "includes"
-    }
-  },
   "minimum-stability": "dev",
   "repositories": [
     {

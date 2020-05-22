@@ -49,7 +49,7 @@
 		<exclude name="WordPress.PHP.DontExtract.extract_extract" />
 
 		<!-- @todo: Most core files break this rule. -->
-		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<!-- <exclude name="WordPress.Files.FileName.InvalidClassFileName" /> -->
 
 		<!-- @todo: This needs to be adjusted since WP 5.3 -->
 		<exclude name="WordPress.DateTime.RestrictedFunctions.date_date" />

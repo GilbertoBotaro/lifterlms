@@ -25,19 +25,14 @@ defined( 'ABSPATH' ) || exit;
  */
 final class LifterLMS {
 
+	use LLMS_Trait_Singleton;
+
 	/**
 	 * LifterLMS Plugin Version.
 	 *
 	 * @var string
 	 */
 	public $version = '3.38.2';
-
-	/**
-	 * Singleton instance of LifterLMS.
-	 *
-	 * @var LifterLMS
-	 */
-	protected static $_instance = null;
 
 	/**
 	 * LLMS_Person instance
@@ -61,22 +56,6 @@ final class LifterLMS {
 	public $session = null;
 
 	/**
-	 * Main Instance of LifterLMS
-	 * Ensures only one instance of LifterLMS is loaded or can be loaded.
-	 *
-	 * @see      LLMS()
-	 * @return   LifterLMS - Main instance
-	 * @since    1.0.0
-	 * @version  1.0.0
-	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-		return self::$_instance;
-	}
-
-	/**
 	 * LifterLMS Constructor.
 	 *
 	 * @since 1.0.0
@@ -87,11 +66,11 @@ final class LifterLMS {
 	 */
 	private function __construct() {
 
-		if ( function_exists( '__autoload' ) ) {
-			spl_autoload_register( '__autoload' );
-		}
+		// if ( function_exists( '__autoload' ) ) {
+		// 	spl_autoload_register( '__autoload' );
+		// }
 
-		spl_autoload_register( array( $this, 'autoload' ) );
+		// spl_autoload_register( array( $this, 'autoload' ) );
 
 		// Define constants.
 		$this->define_constants();
@@ -252,9 +231,11 @@ final class LifterLMS {
 			require_once 'vendor/lifterlms/lifterlms-rest/lifterlms-rest.php';
 		}
 
-		// Abstracts.
-		require_once 'includes/abstracts/llms-abstract-session-data.php';
-		require_once 'includes/abstracts/llms-abstract-session-database-handler.php';
+
+
+
+
+		return;
 
 		require_once 'includes/llms.functions.core.php';
 		require_once 'includes/class.llms.install.php';
@@ -431,7 +412,7 @@ final class LifterLMS {
 	 * @return void
 	 */
 	public function include_template_functions() {
-		include_once 'includes/llms.template.functions.php';
+		require_once LLMS_PLUGIN_DIR . 'includes/llms-functions-templates.php';
 	}
 
 	/**

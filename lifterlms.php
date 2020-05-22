@@ -28,9 +28,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Autoloader.
-require_once 'vendor/autoload.php';
-
 if ( ! defined( 'LLMS_PLUGIN_FILE' ) ) {
 	define( 'LLMS_PLUGIN_FILE', __FILE__ );
 }
@@ -38,6 +35,12 @@ if ( ! defined( 'LLMS_PLUGIN_FILE' ) ) {
 if ( ! defined( 'LLMS_PLUGIN_DIR' ) ) {
 	define( 'LLMS_PLUGIN_DIR', dirname( __FILE__ ) . '/' );
 }
+
+// Autoload vendor dependencies.
+require_once 'vendor/autoload.php';
+
+// Internal autoloader.
+require_once LLMS_PLUGIN_DIR . 'class-lifterlms-autoloader.php';
 
 if ( ! class_exists( 'LifterLMS' ) ) {
 	require_once LLMS_PLUGIN_DIR . 'class-lifterlms.php';
